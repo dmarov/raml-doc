@@ -1,0 +1,42 @@
+#%RAML 1.0 DocumentationItem
+
+Answer:
+  properties:
+    id: string
+    title: string
+    type: string
+  discriminator: type
+  description: generic answer
+AnswerText:
+  type: Answer
+  discriminatorValue: text
+  properties:
+    content: string
+AnswerTextInput:
+  type: Answer
+  discriminatorValue: text input
+AnswerImage:
+  type: Answer
+  discriminatorValue: image
+  properties:
+    imageUrl: string
+AnswerTextImage:
+  type: [ AnswerText | AnswerImage ]
+  discriminatorValue: text and image
+Answers:
+  type: array
+  items: Answer
+  minItems: 2
+  uniqueItems: true
+Question:
+  discriminator: type
+  properties:
+    id: string
+    content: string
+    answers: Answers
+QuestionWithSingleAnswer:
+  type: Question
+  discriminatorValue: single answer
+QuestionWithMultipleAnswers:
+  type: Question
+  discriminatorValue: multiple answers

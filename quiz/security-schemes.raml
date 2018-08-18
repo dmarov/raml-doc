@@ -1,0 +1,10 @@
+#%RAML 1.0 DocumentationItem
+
+oauth20:
+  type: OAuth 2.0
+  description: Resource protected by OAuth 2.0 token
+  describedBy:
+    headers:
+      Authorization:
+        type: string
+    tokenCredentialsUri: https://api.dropbox.com/1/oauth/access_token

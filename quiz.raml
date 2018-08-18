@@ -1,0 +1,60 @@
+#%RAML 1.0
+# This API should cover whole range of test related tasks
+title: Intervievs, Questionnaires, Tests
+version: v1
+mediaType: application/json
+
+resourceTypes: !include quiz/resource-types.raml
+traits: !include quiz/traits.raml
+securitySchemes: !include quiz/security-schemes.raml
+types: !include quiz/types.raml
+
+/questionnaires:
+  get:
+    securedBy [ oauth20, null ]
+    responses:
+      200:
+      403:
+      404:
+  post:
+  /{questionnaireId}:
+    # uriParameters:
+    #   questionnaireId:
+    #     displayName: questionnaire identifier
+    #     type: string
+    #   get:
+    #     responses:
+    #       200:
+    #       404:
+    #   post:
+    #     responses:
+    #       201:
+    # /questions:
+    #   /{questionId}:
+    #     uriParameters:
+    #       questionId:
+    #         displayName: question identifier
+    #         type: string
+    #     get:
+    #       200:
+
+# /tests/{id}:
+#   get:
+#     200:
+#   post:
+#     404:
+
+# /quests/{id}:
+#   get:
+
+# /questions/{id}:
+#   get:
+#     responses:
+#       200:
+#         body:
+#           type: Question
+#       404:
+#         body:
+#           type: string
+
+
